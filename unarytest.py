@@ -1,5 +1,5 @@
 #program to convert decimal to unary & vv
-#just a test figuring out unary <-> binary conversion
+#just a test figuring out unary <-> decimal conversion
 
 while (1):
     print("[1] Decimal to Unary\n[2] Unary to Decimal")
