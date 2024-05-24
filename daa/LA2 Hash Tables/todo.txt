@@ -1,0 +1,33 @@
+Hash Tables - Linear Probing Part 2
+by Jay Vince Serato
+
+
+Your task is to implement the core operations of a hash function using linear probing involving keys that are of data type char. You will be using their ASCII code representation as their hash codes. Since question marks and spaces will not be utilized as inputs in this problem, you can utilize them for your own purposes.
+
+
+For the compression function, you will implement the same Multiply-Add-and-Divide (MAD) technique given that a=59, b=17, and c=509. These are large numbers, but it will be easier to compute since a computer will do it.
+
+
+You can see the fields of the HashTable in the header file. They are the following:
+
+table - the hash table itself
+N - the capacity of the hash table
+count - the number of elements currently occupying the hash table
+ 
+
+The methods of the HashTable are also present with the three core operations insert, search, and remove. Make sure to use the hash function in the core operations and start doing the operations in that cell, as discussed in the topic. Here are the following methods:
+
+int hash_code(int key) - This function returns the hash code of a key. This is already implemented to return its input key since the key is by itself an integer. DO NOT use this function in the core operations.
+int compress(int code) - This is the compression function that will return a serviceable index to the hash table given a hash code. Your task is to implement this using the MAD technique as specified above. DO NOT use this function in the core operations.
+int hashfn(int key) - This is the entire hash function that calls on its two portions defined above. This is already implemented. ONLY USE THIS when getting a hash value of a key.
+HashTable(int N) - a constructor. Here you are tasked to allocate memory to the hash table and perform the initialization of the fields.
+ 
+
+FOR THIS ACTIVITY, implement the following only:
+
+int insert(int key) - This function will attempt to insert the key in the hash table. If the key already exists in the hash table or if the hash table is already full, return -1. Otherwise, return the number of collisions it had to deal with before successfully inserting the key.
+int search(int key) - This function will return a non-negative value if the key exists in the hash table. It will return the number of cells it had to check and failed before reaching the key (not including the cell when it has found it). Otherwise, it will return -n if the said key is not in the hash table where n is the number of cells it has to check until it fails. For example, if you search on a cell that is already empty, it will return -1 as it has to check 1 cell.
+int remove(int key) - This function will attempt to remove a key from the hash table. If the said key did not exist in the first place, return -1. Otherwise, it will return the number of cells it had to check and failed before deleting the key (not including the cell when it has found it). Remember to replace it will a defunct sentinel when removing an entry. If the succeeding cell is truly empty, make this cell empty as well, along with its preceding defunct sentinels, if there are any.
+The given print will perform the following:
+
+void print() - This function will print first the indices of the hash table starting from 0 to N-1, separated by tabs. On a new line, print the actual elements of the hash table, also separated by tabs. If a cell is not occupied, print 0. Note to not print the defunct sentinel when printing, since this must appear as an empty cell.
